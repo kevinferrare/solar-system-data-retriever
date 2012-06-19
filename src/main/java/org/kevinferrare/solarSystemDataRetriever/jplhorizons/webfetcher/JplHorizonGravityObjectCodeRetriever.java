@@ -32,6 +32,38 @@ import org.kevinferrare.solarSystemDataRetriever.utils.HttpClientTool;
  */
 public class JplHorizonGravityObjectCodeRetriever extends HttpClientTool {
 	/**
+	 * Tries to find an object id for the given object name
+	 * 
+	 * @param name
+	 *            the name of the object to search
+	 * @return a String containing the object id if found or null else
+	 */
+	public String getGravityObjectCode(String name) throws UnsupportedEncodingException, ClientProtocolException, IOException {
+		String code = getGravityObjectCodeFromLocalDatabase(name);
+		if (code == null) {
+			code = getGravityObjectCodeFromNetwork(name);
+		}
+		return code;
+	}
+
+	/**
+	 * Search the given name from a local database (the JPL search page is only for small bodies so planets and major moons are not there)
+	 * 
+	 * @param name
+	 *            the name of the object to search
+	 * @return a String containing the object id if found or null else
+	 */
+	protected String getGravityObjectCodeFromLocalDatabase(String name) {
+		name = name.toUpperCase();
+		for (String[] bodyDescription : JplHorizonsMajorBodiesList.majorBodies) {
+			if (bodyDescription[0].toUpperCase().contains(name)) {
+				return bodyDescription[1];
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Queries the JPL HORIZONS system and returns the object id for the given name, or null if not found
 	 * 
 	 * @param name
@@ -41,7 +73,7 @@ public class JplHorizonGravityObjectCodeRetriever extends HttpClientTool {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public String getGravityObjectCode(String name) throws UnsupportedEncodingException, ClientProtocolException, IOException {
+	protected String getGravityObjectCodeFromNetwork(String name) throws UnsupportedEncodingException, ClientProtocolException, IOException {
 		String result = new String(getResult(name));
 		String[] lines = result.split("\n");
 		for (String line : lines) {

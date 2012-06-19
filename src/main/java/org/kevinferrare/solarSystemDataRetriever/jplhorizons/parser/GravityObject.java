@@ -26,6 +26,7 @@ package org.kevinferrare.solarSystemDataRetriever.jplhorizons.parser;
  * 
  */
 public class GravityObject {
+	private String id;
 	private String name;
 	private double density;//density in kg/m3
 	private double mass;//mass in kilograms
@@ -36,6 +37,15 @@ public class GravityObject {
 	private double vx;
 	private double vy;
 	private double vz;
+
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

@@ -97,6 +97,7 @@ public class JplHorizonsDataParser {
 				return null;
 			}
 			GravityObject gravityObject = new GravityObject();
+			gravityObject.setId(jplId);
 			// some items don't have those fields, set a default value
 			gravityObject.setDensity(-1);
 			gravityObject.setMass(-1);
