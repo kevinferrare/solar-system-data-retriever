@@ -60,7 +60,7 @@ If we want an accurate simulation we need to override the physical data from the
 
 ## Get an accurate files with correct physical properties
 
-Download the [data correction file](http://solar-system-data-retriever.googlecode.com/files/solarSystemDataCorrections.csv) which contains more accurate physical data.
+Download the [data correction file](https://github.com/kevinferrare/solar-system-data-retriever/blob/master/src/doc/solarSystemDataCorrections.csv) which contains more accurate physical data.
 
 Run the program with the new data (provide it with the parameter --object_physical_data_file) :
 
@@ -68,7 +68,7 @@ Run the program with the new data (provide it with the parameter --object_physic
 
 Here is what we get :
 
-![good](https://solar-system-data-retriever.googlecode.com/svn/trunk/src/doc/PlutoSystemGood.png)
+![good](https://github.com/kevinferrare/solar-system-data-retriever/blob/master/src/doc/PlutoSystemGood.png)
 
 Better, isn't it ?
 
@@ -83,7 +83,7 @@ You can also specify the proxy options to the JVM using command lines options li
 # For developpers
 The project can be compiled using [maven](http://maven.apache.org/).
 
-Just download the source code from the [repository](https://code.google.com/p/solar-system-data-retriever/source/checkout) and compile it with the following command :
+Just download the source code and compile it with the following command :
 
 `mvn clean package`
 
