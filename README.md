@@ -89,3 +89,6 @@ Just download the source code and compile it with the following command :
 
 # Author
   * Kévin Ferrare
+
+# License
+This project is licensed under the GNU LGPL v3
